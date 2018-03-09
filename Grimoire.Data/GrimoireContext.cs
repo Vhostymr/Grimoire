@@ -1,5 +1,6 @@
 ﻿using Grimoire.Data.DataModels;
 using Microsoft.EntityFrameworkCore;
+using System.Configuration;
 
 namespace Grimoire.Data
 {
@@ -23,7 +24,7 @@ namespace Grimoire.Data
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
-            optionsBuilder.UseSqlServer(System.Configuration.ConfigurationManager.AppSettings["Server"]);
+            optionsBuilder.UseSqlServer(ConfigurationManager.ConnectionStrings["Server"].ConnectionString);
         }
     }
 }
