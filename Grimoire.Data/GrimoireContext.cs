@@ -4,7 +4,7 @@ using System.Configuration;
 
 namespace Grimoire.Data
 {
-    public class GrimoireContext : DbContext
+    public class GrimoireContext : DbContext, IGrimoireContext
     {
         public DbSet<Spell> Spells { get; set; }
 

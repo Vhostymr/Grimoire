@@ -5,7 +5,7 @@ namespace Grimoire.Models.SpellCard
 {
     public class SpellCardViewModel
     {
-        public IList<SpellViewModel> Spells { get; set; }
+        public List<SpellViewModel> Spells { get; set; }
 
         public static string GetSpellHeading(int spellLevel)
         {

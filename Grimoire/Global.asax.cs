@@ -9,6 +9,7 @@ namespace Grimoire
     {
         protected void Application_Start()
         {
+            IocConfig.Initialize();
             AreaRegistration.RegisterAllAreas();
             FilterConfig.RegisterGlobalFilters(GlobalFilters.Filters);
             RouteConfig.RegisterRoutes(RouteTable.Routes);

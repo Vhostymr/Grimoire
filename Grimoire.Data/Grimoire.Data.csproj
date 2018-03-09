@@ -124,6 +124,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="GrimoireContext.cs" />
+    <Compile Include="IGrimoireContext.cs" />
     <Compile Include="Migrations\20180301021831_Init.cs" />
     <Compile Include="Migrations\20180301021831_Init.designer.cs">
       <DependentUpon>20180301021831_Init.cs</DependentUpon>
