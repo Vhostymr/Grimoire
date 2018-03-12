@@ -1,4 +1,4 @@
-﻿namespace Grimoire.Data.DataModels
+﻿namespace Grimoire.Domain
 {
     public class School
     {

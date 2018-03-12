@@ -139,8 +139,6 @@
     </Compile>
     <Compile Include="Migrations\GrimoireContextModelSnapshot.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="DataModels\School.cs" />
-    <Compile Include="DataModels\Spell.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="app.config" />
@@ -149,6 +147,13 @@
     </None>
     <None Include="packages.config" />
   </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Grimoire.Domain\Grimoire.Domain.csproj">
+      <Project>{88b872d5-caa5-4bc3-acbe-6c44228ffc76}</Project>
+      <Name>Grimoire.Domain</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <PropertyGroup>
     <PostBuildEvent>

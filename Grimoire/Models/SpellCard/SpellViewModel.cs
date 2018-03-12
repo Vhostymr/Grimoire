@@ -1,43 +1,46 @@
-﻿using Grimoire.Data.DataModels;
+﻿using Grimoire.Domain;
 using Grimoire.Extensions;
-using System;
+using System.Collections.Generic;
 using System.Text;
 
 namespace Grimoire.Models.SpellCard
 {
-    public class SpellViewModel : Spell
+    public class SpellViewModel
     {
         public const string CastingTimeLabel = "Casting Time: ";
         public const string RangeLabel = "Range: ";
         public const string ComponentsLabel = "Components: ";
         public const string DurationLabel = "Duration: ";
 
-        public string Components
+        public List<Spell> Spells { get; set; }
+
+        public static string GetSpellHeading(int spellLevel)
         {
-            get
-            {
-                var builder = new StringBuilder();
+            if (spellLevel == 0) return "Cantrips";
 
-                builder.Append(IsVerbal ? "V, " : "");
-                builder.Append(IsSomatic ? "S, " : "");
-                builder.Append(!string.IsNullOrEmpty(Material) ? "M (" + Material + ")" : "");
-
-                return builder.ToString().TrimEnd(Convert.ToChar(", "));
-            }
+            return spellLevel.ToOrdinal() + " Level";
         }
 
-        public string SpellType
+        public static string GetComponents(Spell spell)
         {
-            get
-            {
-                if (SpellLevel == 0) return School.Name + " cantrip";
+            var builder = new StringBuilder();
 
-                var output = SpellLevel.ToOrdinal() + "-level " + School.Name;
+            builder.Append(spell.IsVerbal ? "V, " : "");
+            builder.Append(spell.IsSomatic ? "S, " : "");
+            builder.Append(!string.IsNullOrEmpty(spell.Material) ? "M (" + spell.Material + ")" : "");
 
-                if (IsRitual) output = output + " (ritual)";
+            return builder.ToString().TrimEnd(',', ' ');
+        }
 
-                return output;
-            }
+        public static string GetSpellType(Spell spell)
+        {
+            if (spell.SpellLevel == 0) return spell.School.Name + " cantrip";
+
+            var output = spell.SpellLevel.ToOrdinal() + "-level " + spell.School.Name;
+
+            if (spell.IsRitual) output = output + " (ritual)";
+
+            return output;
         }
     }
 }

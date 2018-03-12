@@ -1,5 +1,8 @@
 ﻿using Grimoire.Data;
-using Grimoire.Data.DataModels;
+using Grimoire.Domain;
+using Grimoire.Models.SpellCard;
+using Microsoft.EntityFrameworkCore;
+using System.Linq;
 using System.Web.Mvc;
 
 namespace Grimoire.Controllers
@@ -15,7 +18,14 @@ namespace Grimoire.Controllers
 
         public ActionResult Index()
         {
-            return View();
+            var spells = _context.Spells.Include(b => b.School).ToList();
+
+            var model = new SpellViewModel
+            {
+                Spells = spells
+            };
+
+            return View(model);
         }
 
         [HttpPost]

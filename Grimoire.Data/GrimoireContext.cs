@@ -1,4 +1,4 @@
-﻿using Grimoire.Data.DataModels;
+﻿using Grimoire.Domain;
 using Microsoft.EntityFrameworkCore;
 using System.Configuration;
 
