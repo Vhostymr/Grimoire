@@ -3,7 +3,7 @@ using Grimoire.Domain;
 using Grimoire.Models.SpellCard;
 using Microsoft.EntityFrameworkCore;
 using System.Linq;
-using System.Web.Mvc;
+using Microsoft.AspNetCore.Mvc;
 
 namespace Grimoire.Controllers
 {

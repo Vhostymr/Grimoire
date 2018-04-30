@@ -10,6 +10,11 @@ namespace Grimoire.Data
 
         public DbSet<School> Schools { get; set; }
 
+        public GrimoireContext(DbContextOptions options) : base(options)
+        {
+
+        }
+
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             //Add join table mapping here with Fluent API.
@@ -24,7 +29,7 @@ namespace Grimoire.Data
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
-            optionsBuilder.UseSqlServer(ConfigurationManager.ConnectionStrings["Server"].ConnectionString);
+            optionsBuilder.UseSqlServer("Server=BRANDON-LAPTOP;Database=Grimoire;Integrated Security=false;User Id=grimoiresa;Password=makethemagichappen;Trusted_Connection=true");
         }
     }
 }
